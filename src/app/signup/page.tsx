@@ -18,9 +18,9 @@ function Signup() {
   async function handleSignup() {
     try {
       const response = await axios.post('/api/users/signup', user);
-      alert(response);
+      router.push('/login');
     } catch (error) {
-      alert(JSON.stringify(error));
+      console.log(error);
     }
   }
 
