@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 // function to connect to the database
 async function connect() {
   try {
-    mongoose.connect(process.env.MONGO_URI);
+    await mongoose.connect(process.env.MONGO_URI);
     const connection = mongoose.connection;
 
     // on successful connection
@@ -13,7 +13,7 @@ async function connect() {
 
     // on error
     connection.on('error', (error) => {
-      console.log('Unable to connect to mongo db');
+      console.log('Unable to connect to mongo db', error);
       process.exit();
     });
   } catch (error) {
